@@ -70,6 +70,16 @@ if __name__ == "__main__":
                     
                     df = pd.concat([df, new_row], ignore_index=True)
                     
+    average = pd.DataFrame({
+        'Queries': 'Average',
+        'Number of Overlapping Results': [df['Number of Overlapping Results'].mean()],
+        'Percent Overlap': [df['Percent Overlap'].mean()],
+        'Spearman Coefficient': [df['Spearman Coefficient'].mean()]
+    })
+                
+                
+    df = pd.concat([df, average], ignore_index=True)
+                    
     df.to_csv('hw1.csv', index=False)
                 
                 

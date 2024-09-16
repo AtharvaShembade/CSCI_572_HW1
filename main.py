@@ -39,6 +39,16 @@ class SearchEngine:
                 
         return results
     
+    @staticmethod
+    def compare_files(file1, file2):
+        with open(file1, 'r') as f1, open(file2, 'r') as f2:
+            data1 = json.load(f1)
+            data2 = json.load(f2)
+            
+        if set(data1.keys()) != set(data2.keys()):
+            print("Queries don't match")
+            return
+
 if __name__=="__main__":
     import json
     results_dict = {}  # Dictionary to store queries and their results
